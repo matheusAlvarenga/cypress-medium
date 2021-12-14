@@ -8,3 +8,8 @@ Cypress.Commands.add('login', () => {
 
   cy.get('[data-qa-selector="sign_in_button"').click()
 })
+
+Cypress.Commands.add('logout', () => {
+  cy.get('.qa-user-avatar').click()
+  cy.contains('Sign out').click()
+})
