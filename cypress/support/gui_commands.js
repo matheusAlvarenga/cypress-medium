@@ -25,7 +25,7 @@ Cypress.Commands.add('gui_createProject', ({ name, description }) => {
   cy.contains('Create project').click()
 })
 
-Cypress.Commands.add('gui_createIssue', ({ name, description, project: {name: projName, description: projDescription} }) => {
+Cypress.Commands.add('gui_createIssue', ({ name, description, project: { name: projName } }) => {
   cy.visit(`${Cypress.env('user_name')}/${projName}/issues/new`)
 
   cy.get('.qa-issuable-form-title').type(name)
