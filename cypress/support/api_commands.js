@@ -13,3 +13,17 @@ Cypress.Commands.add('api_createProject', ({ name, description }) => {
     }
   })
 })
+
+Cypress.Commands.add('api_createIssue', ({ name, description, project }) => {
+  cy.api_createProject(project).then(response => {
+    cy.request({
+      url: `api/v4/projects/${response.body.id}/issues?private_token=${accessToken}`,
+      method: 'POST',
+      body: {
+        title: name,
+        description,
+        initialize_with_readme: true
+      }
+    })
+  })
+})
