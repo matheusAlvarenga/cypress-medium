@@ -14,7 +14,7 @@ describe('Create Issue Block', () => {
 
   beforeEach(() => {
     cy.login()
-    cy.gui_createProject(issue.project)
+    cy.api_createProject(issue.project)
   })
 
   it('should create an issue with success', () => {
